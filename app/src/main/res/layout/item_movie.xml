@@ -11,8 +11,8 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/_7sdp"
             app:cardElevation="4dp"
@@ -30,14 +30,14 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/movieIv"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_130sdp"
+                    android:layout_height="@dimen/_300sdp"
                     android:layout_margin="@dimen/_15sdp"
                     android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearance="@style/ShapeAppearanceOverlay.Services"
-                    tools:srcCompat="@drawable/ic_default_film" />
+                    tools:srcCompat="@drawable/ic_vector_no_image_placeholder" />
 
 
                 <com.google.android.material.textview.MaterialTextView
