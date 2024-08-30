@@ -32,4 +32,8 @@ class AppBarView(context: Context, attributes: AttributeSet? = null) :
     fun setTitleBarTv(@StringRes title: Int) {
         binding.titleBarTv.setText(title)
     }
+
+    fun setTitleBarTv( title: String) {
+        binding.titleBarTv.text = title
+    }
 }

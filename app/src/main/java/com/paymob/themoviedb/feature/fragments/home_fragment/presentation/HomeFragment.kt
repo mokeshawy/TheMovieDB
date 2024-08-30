@@ -3,14 +3,17 @@ package com.paymob.themoviedb.feature.fragments.home_fragment.presentation
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.paymob.core.error.AppException
+import com.paymob.core.extensions.navigate
 import com.paymob.core.utils.PagingListStateAdapter
 import com.paymob.themoviedb.R
 import com.paymob.themoviedb.core.moviedb_base_fragment.MovieDbBaseFragment
 import com.paymob.themoviedb.databinding.FragmentHomeBinding
+import com.paymob.themoviedb.feature.fragments.comoun.viewmodel.MainViewModel
 import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieDataEntity
 import com.paymob.themoviedb.feature.fragments.home_fragment.domain.viewmodel.HomeViewModel
 import com.paymob.themoviedb.feature.fragments.home_fragment.presentation.adapter.MovieAdapter
@@ -23,6 +26,7 @@ class HomeFragment : MovieDbBaseFragment<FragmentHomeBinding>() {
     override fun layoutInflater() = FragmentHomeBinding.inflate(layoutInflater)
 
     private val viewModel: HomeViewModel by viewModels()
+    private val mainViewModel: MainViewModel by hiltNavGraphViewModels(R.id.nav_graph)
 
     private lateinit var movieAdapter: MovieAdapter
 
@@ -59,8 +63,8 @@ class HomeFragment : MovieDbBaseFragment<FragmentHomeBinding>() {
 
 
     private fun navigateToDetailsScreen(movieDataEntity: MovieDataEntity) {
-        viewModel.setMovieDataEntity(movieDataEntity)
-        //TODO NAVIGATE TO DETAILS SCREEN
+        mainViewModel.setMovieDataEntity(movieDataEntity)
+        navigate(R.id.actionHomeFragmentToMovieDetailsFragment)
     }
 
     private fun getConcatLoadingAdapter(): ConcatAdapter {

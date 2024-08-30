@@ -13,26 +13,8 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val moviesUseCase: MoviesUseCase) : ViewModel() {
 
 
-    private var movieDataEntity: MovieDataEntity? = null
-
     fun getPagingMovieDataEntity(submitPagingMovieEntity: suspend (PagingData<MovieDataEntity>) -> Unit) =
         viewModelScope.launch {
             moviesUseCase().collect { submitPagingMovieEntity(it) }
         }
-
-
-    fun setMovieDataEntity(movieDataEntity: MovieDataEntity) {
-        this.movieDataEntity = movieDataEntity
-    }
-
-    fun getMovieDataEntity() = this.movieDataEntity
-
-    fun clearMovieDataEntity() {
-        this.movieDataEntity = null
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        clearMovieDataEntity()
-    }
 }

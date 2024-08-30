@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.paymob.themoviedb.ui_componenet.app_bar_view.AppBarView
+            android:id="@+id/appBarView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarView">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/movieIv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_300sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.Services"
+                    tools:srcCompat="@drawable/ic_vector_no_image_placeholder" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/movieNameTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textAppearance="@style/SemiBold_Subtitle"
+                    android:textColor="@color/secondaryDefault500"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/favoriteTglBtn"
+                    app:layout_constraintStart_toStartOf="@+id/movieIv"
+                    app:layout_constraintTop_toBottomOf="@+id/movieIv"
+                    tools:text="Freaky Movie" />
+
+
+                <ToggleButton
+                    android:id="@+id/favoriteTglBtn"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/favorite_selector"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintBottom_toBottomOf="@+id/movieNameTv"
+                    app:layout_constraintEnd_toEndOf="@+id/movieIv"
+                    app:layout_constraintStart_toEndOf="@id/movieNameTv"
+                    app:layout_constraintTop_toTopOf="@+id/movieNameTv" />
+
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="1"
+                    android:rating="1"
+                    app:layout_constraintBottom_toBottomOf="@+id/voteAverageTv"
+                    app:layout_constraintEnd_toStartOf="@+id/voteAverageTv"
+                    app:layout_constraintTop_toTopOf="@+id/voteAverageTv" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/voteAverageTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:textAppearance="@style/Regular_Body1"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintEnd_toEndOf="@+id/favoriteTglBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/movieNameTv"
+                    tools:text="4.5" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/releaseDateTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:text="@string/date"
+                    android:textAppearance="@style/Regular_Body"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintStart_toStartOf="@+id/movieNameTv"
+                    app:layout_constraintTop_toBottomOf="@+id/movieNameTv" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/releaseDateValueTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:textAppearance="@style/Regular_Body"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintBottom_toBottomOf="@+id/releaseDateTv"
+                    app:layout_constraintStart_toEndOf="@+id/releaseDateTv"
+                    app:layout_constraintTop_toTopOf="@+id/releaseDateTv"
+                    tools:text="2024" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/languageTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:text="@string/language"
+                    android:textAppearance="@style/Regular_Body"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintEnd_toStartOf="@id/languageValueTv"
+                    app:layout_constraintStart_toStartOf="@+id/releaseDateTv"
+                    app:layout_constraintTop_toBottomOf="@+id/releaseDateTv" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/languageValueTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:textAppearance="@style/Regular_Body"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintBottom_toBottomOf="@+id/languageTv"
+                    app:layout_constraintEnd_toEndOf="@+id/voteAverageTv"
+                    app:layout_constraintStart_toEndOf="@+id/languageTv"
+                    app:layout_constraintTop_toTopOf="@+id/languageTv"
+                    tools:text="en" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/overviewTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:text="@string/overview"
+                    android:textAppearance="@style/Regular_Body"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintStart_toStartOf="@+id/languageTv"
+                    app:layout_constraintTop_toBottomOf="@+id/languageValueTv" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/overviewValueTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:textAppearance="@style/Regular_Body"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/languageValueTv"
+                    app:layout_constraintStart_toEndOf="@+id/overviewTv"
+                    app:layout_constraintTop_toTopOf="@+id/overviewTv"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="Wedding quickly goes awry as something sinister unfolds." />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
