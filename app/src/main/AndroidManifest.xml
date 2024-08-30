@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="@bool/usesCleartextTraffic"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".feature.activites.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
