@@ -16,9 +16,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(uri("https://jitpack.io"))
     }
 }
 
 rootProject.name = "TheMovieDB"
 include(":app")
- 
+include(":core")
