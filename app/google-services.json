@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "230301438963",
+    "project_id": "themoviedb-8b213",
+    "storage_bucket": "themoviedb-8b213.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230301438963:android:308d20479f03e344eff886",
+        "android_client_info": {
+          "package_name": "com.paymob.themoviedb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwsLPBUTQYy8sPjOxTiTt8tC9y4XGPxWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230301438963:android:4a13fc1f5e213a71eff886",
+        "android_client_info": {
+          "package_name": "com.paymob.themoviedb.stage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwsLPBUTQYy8sPjOxTiTt8tC9y4XGPxWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
