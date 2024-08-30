@@ -1,0 +1,5 @@
+<resources>
+
+    <string name="genericErrorMessage">Something wrong happened please try again!</string>
+    <string name="retry">Retry</string>
+</resources>
