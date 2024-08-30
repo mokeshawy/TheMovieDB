@@ -39,15 +39,6 @@ object RetrofitModule {
 
 
     @Provides
-    @Named("AuthInterceptor")
-    fun provideAuthInterceptor(): Interceptor =
-        Interceptor { chain ->
-            val newBuilder = chain.request().newBuilder()
-            newBuilder.addHeader("Authorization", "Bearer TOKEN")
-            newBuilder.build().let { chain.proceed(it) }
-        }
-
-    @Provides
     fun providesNetLoggingInterceptor() = NetLoggingInterceptor()
 
     @Provides
