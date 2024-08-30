@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Brand Palette -->
+    <color name="brandPaletteDark800">#771104</color>
+    <color name="brandPaletteDark700">#991B0B</color>
+    <color name="brandPaletteDark600">#D5240D</color>
+    <color name="brandPaletteDefault500">#E6240A</color>
+    <color name="brandPaletteLight400">#FF7A7A</color>
+    <color name="brandPaletteLight300">#FF9D94</color>
+    <color name="brandPaletteLight200">#FFC3B8</color>
+    <color name="brandPaletteLight100">#FFE4DB</color>
+
+    <!-- Primary Color -->
+    <color name="primaryDark900">#070C18</color>
+    <color name="primaryDark800">#0D121D</color>
+    <color name="primaryDark700">#141A24</color>
+    <color name="primaryDark600">#1D232B</color>
+    <color name="primaryDefault">#292D32</color>
+    <color name="primaryLight400">#727A83</color>
+    <color name="primaryLight300">#ACB7C1</color>
+    <color name="primaryLight200">#D9E3EA</color>
+    <color name="primaryLight100">#EBF1F4</color>
+    <color name="primaryLight100WithOpacity">#CCEBF1F4</color>
+    <color name="primaryWhite">#FFFFFF</color>
+
+    <!-- Secondary Color-->
+    <color name="secondaryDark900">#070C18</color>
+    <color name="secondaryDark900Opacity60">#99070C18</color>
+    <color name="secondaryDark800">#0B1442</color>
+    <color name="secondaryDark700">#121D52</color>
+    <color name="secondaryDark600">#1B2962</color>
+    <color name="secondaryDefault500">#253673</color>
+    <color name="secondaryLight400">#5468AB</color>
+    <color name="secondaryLight300">#7E95D5</color>
+    <color name="secondaryLight200">#AFC2F0</color>
+    <color name="secondaryLight100">#D6E0F8</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+
+    <!-- label color -->
+    <color name="lightRed">#FFEDEF</color>
+    <color name="lightBlue">#F2FAFF</color>
+    <color name="lightGreen">#F0FFD7</color>
+    <color name="lightGrey">#FAFAFA</color>
+
+    <color name="primaryNeutral200">#D8E2E9</color>
+    <color name="cardDetailsColor">#F4F4FB</color>
+
+    <color name="blur_bg">#D5FFFFFF</color>
+
+    <color name="greenColor">#059E14</color>
 </resources>
