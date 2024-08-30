@@ -1,4 +1,4 @@
-package com.paymob.themoviedb.core.moviedb_base_application
+package com.paymob.themoviedb.core.moviedb_application
 
 import com.google.firebase.FirebaseApp
 import com.paymob.core.base_application.BaseApplication
@@ -6,9 +6,11 @@ import com.paymob.core.crash_reporting.CrashReportingManager
 import com.paymob.core.crash_reporting.crash_reporting_key.AppCrashReportingKeys
 import com.paymob.core.crash_reporting.crash_reporting_tools.FirebaseCrashReportingTool
 import com.paymob.themoviedb.core.utils.Constants
+import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
-class MovieDbBaseApplication : BaseApplication(){
+@HiltAndroidApp
+class MovieDbApplication : BaseApplication(){
 
     @Inject
     lateinit var firebaseCrashReportingTool: FirebaseCrashReportingTool
@@ -30,7 +32,7 @@ class MovieDbBaseApplication : BaseApplication(){
     }
 
     override fun getPreLogKeys() =
-        listOf(AppCrashReportingKeys.AppErrorKeys.TOKEN to Constants.token)
+        listOf(AppCrashReportingKeys.AppErrorKeys.TOKEN to Constants.TOKEN)
 
     override fun getRemoteDebuggerPort() = 4040
 }
