@@ -7,8 +7,13 @@ plugins {
 }
 
 android {
+
     namespace = "com.paymob.core"
     compileSdk = 34
+
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         minSdk = 24
@@ -19,6 +24,15 @@ android {
 
     buildTypes {
         release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+
+        debug {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -26,12 +40,29 @@ android {
             )
         }
     }
+
+    flavorDimensions += listOf("version")
+    productFlavors {
+        create("staging") {
+            dimension = "version"
+        }
+        create("live") {
+            dimension = "version"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
+        viewBinding = true
     }
 }
 
