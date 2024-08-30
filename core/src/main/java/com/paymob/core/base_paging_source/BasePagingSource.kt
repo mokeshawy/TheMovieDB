@@ -1,9 +1,9 @@
 package com.paymob.core.base_paging_source
 
 import androidx.paging.PagingSource
-import com.paymob.core.error.ResponseUnAuthorizedError
 import com.paymob.core.error.AppError
 import com.paymob.core.error.AppException
+import com.paymob.core.error.ResponseUnAuthorizedException
 import retrofit2.Response
 
 abstract class BasePagingSource<key : Any, value : Any> : PagingSource<key, value>() {
@@ -17,7 +17,7 @@ abstract class BasePagingSource<key : Any, value : Any> : PagingSource<key, valu
 
     private fun getUnAuthorizedException(response: Response<*>): AppException {
         val appError = AppError.E(
-            exception = ResponseUnAuthorizedError(),
+            exception = ResponseUnAuthorizedException(),
             logMessage = "Api request to url: ${response.raw().request.url}: failed with code ${response.code()}",
             extraData = response
         )

@@ -5,7 +5,7 @@ import com.paymob.core.error.AppError
 import com.paymob.core.error.GeneralException
 import com.paymob.core.error.IoException
 import com.paymob.core.error.ResponseErrorException
-import com.paymob.core.error.ResponseUnAuthorizedErrorException
+import com.paymob.core.error.ResponseUnAuthorizedException
 import com.paymob.core.state.State
 import retrofit2.Response
 import java.io.IOException
@@ -51,7 +51,7 @@ abstract class BaseRepository<RequestDto, ResponseDto> {
     )
 
     private fun getUnauthorizedError(response: Response<*>) = AppError.E(
-        exception = ResponseUnAuthorizedErrorException(),
+        exception = ResponseUnAuthorizedException(),
         logMessage = "Api request to url: ${response.raw().request.url}: failed with code ${response.code()}",
         extraData = response
     )
