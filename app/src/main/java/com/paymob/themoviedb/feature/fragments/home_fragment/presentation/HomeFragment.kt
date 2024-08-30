@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.paymob.core.error.AppException
 import com.paymob.core.extensions.navigate
+import com.paymob.core.state.State
 import com.paymob.core.utils.PagingListStateAdapter
 import com.paymob.themoviedb.R
 import com.paymob.themoviedb.core.moviedb_base_fragment.MovieDbBaseFragment
@@ -18,6 +21,7 @@ import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieD
 import com.paymob.themoviedb.feature.fragments.home_fragment.domain.viewmodel.HomeViewModel
 import com.paymob.themoviedb.feature.fragments.home_fragment.presentation.adapter.MovieAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -37,18 +41,28 @@ class HomeFragment : MovieDbBaseFragment<FragmentHomeBinding>() {
 
     private fun FragmentHomeBinding.setupViews() {
         setAppBarTitle()
-        getPagingMovieDataEntity()
+        lifecycleScope.launch { collectOnPagingMovieDataState() }
     }
 
 
     private fun FragmentHomeBinding.setAppBarTitle() = appBarView.setTitleBarTv(R.string.app_name)
 
 
-    private fun FragmentHomeBinding.getPagingMovieDataEntity() {
+    private suspend fun FragmentHomeBinding.collectOnPagingMovieDataState() {
+        viewModel.pagingMovieDataState.collect {
+            when (it) {
+                is State.Error -> it.error.handleError { }
+                is State.Initial -> {}
+                is State.Loading -> {}
+                is State.Success -> handePagingMovieDataSuccessState(it.data ?: return@collect)
+            }
+        }
+    }
+
+
+    private suspend fun FragmentHomeBinding.handePagingMovieDataSuccessState(data: PagingData<MovieDataEntity>) {
         setUpMovieAdapter()
-        viewModel.getPagingMovieDataEntity(submitPagingMovieEntity = {
-            movieAdapter.submitData(it)
-        })
+        movieAdapter.submitData(data)
     }
 
 
