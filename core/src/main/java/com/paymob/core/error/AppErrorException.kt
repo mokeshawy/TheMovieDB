@@ -19,10 +19,6 @@ class IoException(message: String? = null, cause: Throwable? = null) :
 class ResponseError(message: String? = null, cause: Throwable? = null) :
     AppErrorException(message, cause)
 
-@Keep
-class ResponseUnAuthorizedError(message: String? = null, cause: Throwable? = null) :
-    AppErrorException(message, cause)
-
 
 @Keep
 class FailedToDecodeJwt(message: String? = null, cause: Throwable? = null) :
@@ -42,7 +38,7 @@ class ResponseErrorException(message: String? = null, cause: Throwable? = null) 
     AppErrorException(message, cause)
 
 @Keep
-class ResponseUnAuthorizedErrorException(message: String? = null, cause: Throwable? = null) :
+class ResponseUnAuthorizedException(message: String? = null, cause: Throwable? = null) :
     AppErrorException(message, cause)
 
 @Keep
@@ -50,8 +46,9 @@ class ResponseNotFoundErrorException(message: String? = null, cause: Throwable? 
     AppErrorException(message, cause)
 
 
-
-
+@Keep
+class MoviesListException(message: String? = null, cause: Throwable? = null) :
+    AppErrorException(message, cause)
 
 
 

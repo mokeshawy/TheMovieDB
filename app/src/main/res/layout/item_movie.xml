@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_7sdp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/movieIv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_300sdp"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.Services"
+                    tools:srcCompat="@drawable/ic_vector_no_image_placeholder" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/movieNameTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textAppearance="@style/SemiBold_Subtitle"
+                    android:textColor="@color/secondaryDefault500"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/favoriteTglBtn"
+                    app:layout_constraintStart_toStartOf="@+id/movieIv"
+                    app:layout_constraintTop_toBottomOf="@+id/movieIv"
+                    tools:text="Freaky Movie" />
+
+
+                <ToggleButton
+                    android:id="@+id/favoriteTglBtn"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/favorite_selector"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintBottom_toBottomOf="@+id/movieNameTv"
+                    app:layout_constraintEnd_toEndOf="@+id/movieIv"
+                    app:layout_constraintStart_toEndOf="@id/movieNameTv"
+                    app:layout_constraintTop_toTopOf="@+id/movieNameTv" />
+
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="1"
+                    android:rating="1"
+                    app:layout_constraintBottom_toBottomOf="@+id/voteAverageTv"
+                    app:layout_constraintEnd_toStartOf="@+id/voteAverageTv"
+                    app:layout_constraintTop_toTopOf="@+id/voteAverageTv" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/voteAverageTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:textAppearance="@style/Regular_Body1"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/favoriteTglBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/movieNameTv"
+                    tools:text="4.5" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/releaseDateTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:text="@string/date"
+                    android:textAppearance="@style/Regular_Body"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintStart_toStartOf="@+id/movieNameTv"
+                    app:layout_constraintTop_toBottomOf="@+id/movieNameTv" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/releaseDateValueTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_3sdp"
+                    android:textAppearance="@style/Regular_Body"
+                    android:textColor="@color/secondaryDefault500"
+                    app:layout_constraintBottom_toBottomOf="@+id/releaseDateTv"
+                    app:layout_constraintStart_toEndOf="@+id/releaseDateTv"
+                    app:layout_constraintTop_toTopOf="@+id/releaseDateTv"
+                    tools:text="2024" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

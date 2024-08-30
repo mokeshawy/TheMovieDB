@@ -15,9 +15,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.paymob.core.base_activity.BaseActivity
-import com.paymob.core.extensions.showToast
 import com.jakewharton.processphoenix.ProcessPhoenix
+import com.paymob.core.base_activity.BaseActivity
 import com.paymob.core.connectivity.connectivity_manager.NetworkAwareComponent
 import com.paymob.core.error.AppError
 import com.paymob.core.error.AppErrorHandler
@@ -25,7 +24,8 @@ import com.paymob.core.error.GeneralException
 import com.paymob.core.error.IoException
 import com.paymob.core.error.ResponseErrorException
 import com.paymob.core.error.ResponseNotFoundErrorException
-import com.paymob.core.error.ResponseUnAuthorizedErrorException
+import com.paymob.core.error.ResponseUnAuthorizedException
+import com.paymob.core.extensions.showToast
 import com.paymob.core.storage_manager.StorageManager
 import com.paymob.core.storage_manager.di.StorageManagerModule.SHARED_PREFERENCE
 import javax.inject.Inject
@@ -111,7 +111,7 @@ abstract class BaseFragment<dataBinding : ViewDataBinding> : Fragment(), Network
                 is GeneralException -> handleGeneralExceptionError(message)
                 is IoException -> handleIoExceptionError(message)
                 is ResponseErrorException -> handleGeneralResponseError(message)
-                is ResponseUnAuthorizedErrorException -> handleUnauthorizedError(message)
+                is ResponseUnAuthorizedException -> handleUnauthorizedError(message)
                 is ResponseNotFoundErrorException -> handleNotFoundError(message)
                 else -> handleOtherErrors(this)
             }

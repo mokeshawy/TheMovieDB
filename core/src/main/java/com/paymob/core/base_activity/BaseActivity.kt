@@ -15,11 +15,10 @@ import com.paymob.core.connectivity.connectivity_manager.ConnectivityManager
 import com.paymob.core.connectivity.connectivity_manager.NetworkAwareComponent
 import com.paymob.core.error.AppError
 import com.paymob.core.error.AppErrorHandler
-import org.koin.core.component.KoinComponent
 import javax.inject.Inject
 
 abstract class BaseActivity<dataBinding : ViewDataBinding, _navHostResourceId : Int?> :
-    AppCompatActivity(), NetworkAwareComponent, AppErrorHandler, KoinComponent {
+    AppCompatActivity(), NetworkAwareComponent, AppErrorHandler {
 
 
     abstract val binding: dataBinding

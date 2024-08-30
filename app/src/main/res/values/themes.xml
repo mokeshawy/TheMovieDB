@@ -19,4 +19,12 @@
     </style>
 
     <style name="Theme.TheMovieDB" parent="Base.Theme.TheMovieDB" />
+
+
+    <style name="ShapeAppearanceOverlay.Services" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_7sdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_7sdp</item>
+    </style>
+
 </resources>
