@@ -1,25 +1,25 @@
 package com.paymob.themoviedb.feature.fragments.comoun.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieDataEntity
+import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
 
-    private var movieDataEntity: MovieDataEntity? = null
+    private var movieUiModel: MovieUiModel? = null
 
 
-    fun setMovieDataEntity(movieDataEntity: MovieDataEntity) {
-        this.movieDataEntity = movieDataEntity
+    fun setMovieDataEntity(movieUiModel: MovieUiModel) {
+        this.movieUiModel = movieUiModel
     }
 
-    fun getMovieDataEntity() = this.movieDataEntity
+    fun getMovieDataEntity() = this.movieUiModel
 
 
     fun clearMovieDataEntity() {
-        this.movieDataEntity = null
+        this.movieUiModel = null
     }
 
     override fun onCleared() {

@@ -11,14 +11,14 @@ import com.paymob.core.utils.CommonUtils.load
 import com.paymob.themoviedb.R
 import com.paymob.themoviedb.core.utils.Constants.IMAGE_BASE_URL
 import com.paymob.themoviedb.databinding.ItemMovieBinding
-import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieDataEntity
+import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieUiModel
 
 class MovieAdapter(
-    diffUtil: DiffUtil.ItemCallback<MovieDataEntity>,
-    private val onItemClicked: (MovieDataEntity) -> Unit,
+    diffUtil: DiffUtil.ItemCallback<MovieUiModel>,
+    private val onItemClicked: (MovieUiModel) -> Unit,
     private val onFavoriteClicked: (Int, Boolean) -> Unit,
 ) :
-    PagingDataAdapter<MovieDataEntity, MovieAdapter.ViewHolder>(diffUtil) {
+    PagingDataAdapter<MovieUiModel, MovieAdapter.ViewHolder>(diffUtil) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,12 +38,12 @@ class MovieAdapter(
 
         private val context: Context = binding.root.context
 
-        fun bind(item: MovieDataEntity) {
+        fun bind(item: MovieUiModel) {
             binding.setupView(item)
         }
 
         @SuppressLint("SetTextI18n")
-        private fun ItemMovieBinding.setupView(item: MovieDataEntity) {
+        private fun ItemMovieBinding.setupView(item: MovieUiModel) {
             setImageResource(item)
             movieNameTv.text = item.title
             favoriteTglBtn.isChecked = item.isFavorite
@@ -53,7 +53,7 @@ class MovieAdapter(
             setOnFavoriteClicked(item)
         }
 
-        private fun ItemMovieBinding.setImageResource(item: MovieDataEntity) {
+        private fun ItemMovieBinding.setImageResource(item: MovieUiModel) {
             val posterPath = if (item.posterPath == null) {
                 R.drawable.ic_vector_no_image_placeholder
             } else {
@@ -62,10 +62,10 @@ class MovieAdapter(
             movieIv.load(context, posterPath)
         }
 
-        private fun ItemMovieBinding.setOnMovieIvClicked(item: MovieDataEntity) =
+        private fun ItemMovieBinding.setOnMovieIvClicked(item: MovieUiModel) =
             movieIv.setOnClickListener { onItemClicked(item) }
 
-        private fun ItemMovieBinding.setOnFavoriteClicked(item: MovieDataEntity) =
+        private fun ItemMovieBinding.setOnFavoriteClicked(item: MovieUiModel) =
             favoriteTglBtn.setOnCheckedChangeListener { _, isChecked ->
                 onFavoriteClicked(item.id, isChecked)
             }

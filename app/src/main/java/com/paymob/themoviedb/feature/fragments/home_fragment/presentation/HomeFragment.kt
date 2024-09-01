@@ -17,7 +17,7 @@ import com.paymob.themoviedb.R
 import com.paymob.themoviedb.core.moviedb_base_fragment.MovieDbBaseFragment
 import com.paymob.themoviedb.databinding.FragmentHomeBinding
 import com.paymob.themoviedb.feature.fragments.comoun.viewmodel.MainViewModel
-import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieDataEntity
+import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieUiModel
 import com.paymob.themoviedb.feature.fragments.home_fragment.domain.viewmodel.HomeViewModel
 import com.paymob.themoviedb.feature.fragments.home_fragment.presentation.adapter.MovieAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,7 +60,7 @@ class HomeFragment : MovieDbBaseFragment<FragmentHomeBinding>() {
     }
 
 
-    private suspend fun FragmentHomeBinding.handePagingMovieDataSuccessState(data: PagingData<MovieDataEntity>) {
+    private suspend fun FragmentHomeBinding.handePagingMovieDataSuccessState(data: PagingData<MovieUiModel>) {
         setUpMovieAdapter()
         movieAdapter.submitData(data)
     }
@@ -76,8 +76,8 @@ class HomeFragment : MovieDbBaseFragment<FragmentHomeBinding>() {
     }
 
 
-    private fun navigateToDetailsScreen(movieDataEntity: MovieDataEntity) {
-        mainViewModel.setMovieDataEntity(movieDataEntity)
+    private fun navigateToDetailsScreen(movieUiModel: MovieUiModel) {
+        mainViewModel.setMovieDataEntity(movieUiModel)
         navigate(R.id.actionHomeFragmentToMovieDetailsFragment)
     }
 
@@ -107,14 +107,14 @@ class HomeFragment : MovieDbBaseFragment<FragmentHomeBinding>() {
         (loadState.error as? AppException)?.appError?.handleError { Timber.i(exception) }
 
 
-    private fun getMovieDataItemDiffCallback() = object : DiffUtil.ItemCallback<MovieDataEntity>() {
+    private fun getMovieDataItemDiffCallback() = object : DiffUtil.ItemCallback<MovieUiModel>() {
         override fun areItemsTheSame(
-            oldItem: MovieDataEntity, newItem: MovieDataEntity,
+            oldItem: MovieUiModel, newItem: MovieUiModel,
         ) = oldItem.id == newItem.id
 
 
         override fun areContentsTheSame(
-            oldItem: MovieDataEntity, newItem: MovieDataEntity,
+            oldItem: MovieUiModel, newItem: MovieUiModel,
         ) = oldItem == newItem
     }
 }

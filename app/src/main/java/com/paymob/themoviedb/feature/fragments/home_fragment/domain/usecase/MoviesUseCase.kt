@@ -7,7 +7,7 @@ import com.paymob.themoviedb.core.api_services.MovieDbApiServices
 import com.paymob.themoviedb.feature.fragments.home_fragment.data.model.response.MovieData
 import com.paymob.themoviedb.feature.fragments.home_fragment.data.movies_paging_data_source.MoviesPagingDataSource
 import com.paymob.themoviedb.feature.fragments.home_fragment.data.movies_paging_data_source.PAGE_SIZE
-import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieDataEntity
+import com.paymob.themoviedb.feature.fragments.home_fragment.domain.model.MovieUiModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -23,7 +23,7 @@ class MoviesUseCase @Inject constructor(
             .flow.flowOn(Dispatchers.IO).map { it.map { data -> data.toMovieDataEntity() } }
 
 
-    private fun MovieData.toMovieDataEntity() = MovieDataEntity(
+    private fun MovieData.toMovieDataEntity() = MovieUiModel(
         id = id,
         originalLanguage = originalLanguage,
         originalTitle = originalTitle,
