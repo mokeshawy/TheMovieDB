@@ -1,6 +1,6 @@
 package com.paymob.themoviedb.feature.fragments.home_fragment.domain.model
 
-data class MovieDataEntity(
+data class MovieUiModel(
     val id: Int,
     val originalLanguage: String,
     val originalTitle: String,
